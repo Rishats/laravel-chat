@@ -11,6 +11,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
 <script>
     var socket = io(':6001');
+
+    socket.on('message', function (data) {
+        console.log('From server:', data);
+    });
 </script>
 
 </body>
