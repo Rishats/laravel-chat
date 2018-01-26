@@ -15,6 +15,10 @@
     socket.on('message', function (data) {
         console.log('From server:', data);
     });
+
+    socket.on('server-info', function (data) {
+        console.log(data);
+    });
 </script>
 
 </body>
