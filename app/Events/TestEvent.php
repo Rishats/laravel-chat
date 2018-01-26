@@ -6,7 +6,7 @@ use App\Events\Event;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class TestEvent extends Event implements ShouldBroadcast
+class TestEvent implements ShouldBroadcast
 {
     use SerializesModels;
 

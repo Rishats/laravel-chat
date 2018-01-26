@@ -12,8 +12,13 @@
 */
 
 Route::get('/', function () {
+    return view('welcome');
+});
+
+
+Route::get('/forgot', function () {
     // return view('welcome');
     event(
-       new \App\Events\TestEvent() 
+       new \App\Events\TestEvent()
     );
 });
