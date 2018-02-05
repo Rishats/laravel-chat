@@ -12,11 +12,6 @@ class TestEvent implements ShouldBroadcast
 
     public $time;
 
-    /**
-     * Create a new event instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         //$this->time = microtime();
@@ -32,7 +27,7 @@ class TestEvent implements ShouldBroadcast
         return ['service'];
     }
 
-    public function broadcastIn()
+    public function broadcastWith()
     {
         return [
             'time' => microtime(),

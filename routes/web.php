@@ -15,10 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/forgot', function () {
-    // return view('welcome');
+Route::get('/microtime', function () {
     event(
-       new \App\Events\TestEvent()
+        new \App\Events\TestEvent()
     );
 });
+
