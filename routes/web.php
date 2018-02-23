@@ -11,13 +11,24 @@
 |
 */
 
+// WELCOME PAGE
 Route::get('/', function () {
     return view('welcome');
 });
 
+
+// AUTH
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+
+Route::get('login/{provider}', 'Auth\SocialAuthController@redirectToProvider');
+Route::get('login/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
+
+
+// OTHERS
 Route::get('/microtime', function () {
     event(
         new \App\Events\TestEvent()
     );
 });
-
