@@ -45,3 +45,4 @@ redis.on('pmessage', function (pattern, channel, message) {
     console.log(channel, message);
 });
 
+console.log('Server successfully launched');
