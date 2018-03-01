@@ -1,12 +1,16 @@
-// LESSON 1 (CHAT)
-
 var io = require('socket.io')(6001);
 
 io.on('connection', function (socket) {
-   console.log('New connection',socket.id);
+   console.log('New connection',socket.id); // Send info in to console about new client.
+   saveOnline(io.engine.clientsCount); // Save current online in to redis.
+
+   socket.on('disconnect', function() {
+       saveOnline(io.engine.clientsCount);  // Save current online in to redis.
+   });
 
    socket.on('message', function (data) {
        socket.broadcast.send(data);
+       saveMessage(socket.id,data.message); // Save last user message.
    });
 
    // Send message
@@ -24,25 +28,23 @@ io.on('connection', function (socket) {
     // });
 });
 
-// LESSON 1 (CHAT)
+// Connect to the redis server.
 
-var Redis = require('ioredis'),
-    // 127.0.0.1:6379, db 4
-    redis = new Redis({
-        port: 6379,          // Redis port
-        host: '127.0.0.1',   // Redis host
-        family: 4,           // 4(IPv4) or 6(IPv6)
-        password: null,
-        db: 0
-    });
-
-
-redis.psubscribe('*', function (error, count) {
-    //...
+var Redis = require('ioredis');
+var redis = new Redis({
+    port: 6379,          // Redis port
+    host: '127.0.0.1',   // Redis host
+    family: 4,           // 4 (IPv4) or 6 (IPv6)
+    password: null,
+    db: 4
 });
 
-redis.on('pmessage', function (pattern, channel, message) {
-    console.log(channel, message);
-});
+function saveMessage(id, message) // Function save last user message from socket.io in to redis.
+{
+    redis.set(id, message);
+}
 
-console.log('Server successfully launched');
+function saveOnline(online) // Function save current online in socket.io in to redis.
+{
+    redis.set('online',online);
+}
