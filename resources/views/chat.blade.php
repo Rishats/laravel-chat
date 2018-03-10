@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
+                    <i class="fas fa-camera-retro"></i>
                     <div class="panel-heading">Online Chat</div>
-
                     <div class="panel-override-body">
                         @if (session('status'))
                             <div class="alert alert-success">

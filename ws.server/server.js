@@ -9,7 +9,7 @@ io.on('connection', function (socket) {
    });
 
    socket.on('message', function (data) {
-       socket.broadcast.send(data);
+       socket.broadcast.send(socket.id,data);
        saveMessage(socket.id,data.message); // Save last user message.
    });
 
