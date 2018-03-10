@@ -19859,3 +19859,19 @@ label.panel-block:hover {
   padding: 3rem 1.5rem 6rem;
 }
 
+.chat ul li {
+  max-width: 725px;
+  list-style-type: none;
+  position: relative;
+}
+
+.chat ul li:after {
+  content: '';
+  position: absolute;
+  background: black;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+}
+
