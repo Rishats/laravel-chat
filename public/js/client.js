@@ -79,7 +79,7 @@ module.exports = __webpack_require__(44);
 var socket = io(':6001');
 
 function appendMessage(data) {
-    $('.chat').append($('<li class="chat">').text(data.message));
+    $('.chat').append($('<li class="message">').text(data.message));
 }
 $('form').on('submit', function () {
     var text = $('textarea').val(),
