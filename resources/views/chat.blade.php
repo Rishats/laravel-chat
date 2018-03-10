@@ -7,7 +7,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Online Chat</div>
 
-                    <div class="panel-body">
+                    <div class="panel-override-body">
                         @if (session('status'))
                             <div class="alert alert-success">
                                 {{ session('status') }}
