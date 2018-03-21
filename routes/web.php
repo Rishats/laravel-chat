@@ -32,3 +32,6 @@ Route::get('/microtime', function () {
         new \App\Events\TestEvent()
     );
 });
+
+// APP Functionality
+Route::get('/anonymous-chat', 'ChatController@index'); // Simple anonymous chat with websocket and Redis.
