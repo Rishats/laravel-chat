@@ -31,5 +31,5 @@
 @section('scripts')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-    <script src="{{ asset('js/client.js') }}"></script>
+    <script src="{{ asset('js/chat/client.js') }}"></script>
 @endsection
