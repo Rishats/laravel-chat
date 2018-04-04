@@ -2,8 +2,8 @@ var socket = io(':6001');
 
 function appendMessage(user_login,data) {
     $('.chat').append(
-        $('<li/>').text(user_login),
-        $('<li/>').text(data.message)
+        $('<li class="user_login">').text(user_login),
+        $('<li class="user_message">').text(data.message)
     )
 }
 $('form').on('submit', function () {

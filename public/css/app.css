@@ -9994,3 +9994,21 @@ a.text-dark:focus {
   }
 }
 
+.panel-override-body {
+  padding: 15px;
+  word-wrap: break-word;
+}
+
+.user_login {
+  color: red;
+  background-color: lightblue;
+  border: 1px solid black;
+  text-align: center;
+  border-radius: 3px 3px 3px 3px;
+  list-style-type: none;
+}
+
+.user_message {
+  list-style-type: none;
+}
+
