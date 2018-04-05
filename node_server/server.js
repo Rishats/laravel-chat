@@ -2,6 +2,7 @@ var io = require('socket.io')(6001);
 var Redis = require('ioredis');
 var mysql = require('mysql');
 var moment = require('moment');
+require('dotenv').config();
 
 io.on('connection', function (socket) {
    console.log('New connection',socket.id); // Send info in to console about new client.
@@ -20,19 +21,20 @@ io.on('connection', function (socket) {
 
 // Connect to the redis server.
 var redis = new Redis({
-    port: 6379,          // Redis port
-    host: '127.0.0.1',   // Redis host
-    family: 4,           // 4 (IPv4) or 6 (IPv6)
-    password: null,
-    db: 4
+    port: process.env.REDIS_PORT,            // Redis port
+    host: process.env.REDIS_HOST,           // Redis host
+    family: 4,                             // 4 (IPv4) or 6 (IPv6)
+    password: process.env.REDIS_PASSWORD, // Redis password
+    db: 4                                // Redis DB number.
 });
 
 // Connect to Mysql Server
 var mysql_conntection = mysql.createConnection({
-    host: "localhost",
-    user: "homestead",
-    database: "laravel-chat.test",
-    password: "secret"
+    host: process.env.DB_HOST,                  // MySQL host
+    port: process.env.DB_PORT,                // MySQL port
+    database: process.env.DB_DATABASE,      // MySQL password
+    user: process.env.DB_USERNAME,        // MySQL username
+    password: process.env.DB_PASSWORD   // MySQL password
 });
 
 // Open connection MySQL
