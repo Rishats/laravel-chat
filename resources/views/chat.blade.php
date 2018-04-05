@@ -4,7 +4,24 @@
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-md-8 col-md-offset-2 mt-5">
-                <div class="card">
+                <div class="card mb-5">
+                    <div class="card-body">
+                        <div class="card-text">
+                            @if (session('status'))
+                                <div class="alert alert-success">
+                                    {{ session('status') }}
+                                </div>
+                            @endif
+                            <ul class="chat">
+                                @foreach ($last_messages as $msg)
+                                    <li class="user_login">{{ $msg->socket_id }}</li>
+                                    <li class="user_message">{{ $msg->message }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-5">
                     <div class="card-body">
                         <div class="card-text">
                             @if (session('status'))
@@ -13,7 +30,6 @@
                                 </div>
                             @endif
                             <form>
-                                <ul class="chat"></ul>
                                 <div class="form-group mt-5">
                                     <label for="exampleFormControlTextarea1">Введите ваше сообщение:</label>
                                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>

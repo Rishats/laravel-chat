@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ChatMessage;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
@@ -23,6 +24,11 @@ class ChatController extends Controller
      */
     public function index()
     {
-        return view('chat');
+        $last_messages = ChatMessage::orderBy('id', 'desc')
+            ->take(5)
+            ->get()
+            ->reverse();
+        
+        return view('chat')->with( ['last_messages' => $last_messages]);
     }
 }
