@@ -7,9 +7,13 @@ require('dotenv').config();
 io.on('connection', function (socket) {
    console.log('New connection',socket.id); // Send info in to console about new client.
    saveOnline(io.engine.clientsCount); // Save current online in to redis.
+   socket.emit('users_online', { online: io.engine.clientsCount }); // Send current online to user which firstly connected.
+   socket.broadcast.emit('users_online', { online: io.engine.clientsCount });  // Send current online to all users online.
 
    socket.on('disconnect', function() {
        saveOnline(io.engine.clientsCount);  // Save current online in to redis.
+       socket.broadcast.emit('users_online', { online: io.engine.clientsCount });  // Send current online to socket.
+       console.log('New disconnection',socket.id); // Send info in to console about new disconnection.
    });
 
    socket.on('message', function (data) {

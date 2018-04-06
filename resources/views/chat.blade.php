@@ -29,6 +29,7 @@
                                     {{ session('status') }}
                                 </div>
                             @endif
+                            <div class="current_online"></div>
                             <form>
                                 <div class="form-group mt-5">
                                     <label for="exampleFormControlTextarea1">Введите ваше сообщение:</label>

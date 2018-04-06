@@ -28,7 +28,7 @@ class ChatController extends Controller
             ->take(5)
             ->get()
             ->reverse();
-        
+
         return view('chat')->with( ['last_messages' => $last_messages]);
     }
 }

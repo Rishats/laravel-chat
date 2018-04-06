@@ -99,6 +99,11 @@ socket.on('message', function (user_login, data) {
     appendMessage(user_login, data);
 });
 
+socket.on('users_online', function (data) {
+    console.log(data);
+    $('.current_online').empty().append($('<p>').text('Current online: ' + data.online));
+});
+
 /***/ })
 
 /******/ });
