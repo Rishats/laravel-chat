@@ -1,10 +1,11 @@
 var socket = io(':6001');
+var moment = require('moment');
 
 function appendMessage(user_login,data) {
     $('.chat').append(
-        $('<li class="user_login">').text(user_login),
+        $('<li class="user_login">').html(user_login + ' <span class="user_message_time">[' + moment().format('HH:mm:ss') + ']</span>'),
         $('<li class="user_message">').text(data.message)
-    )
+    );
 }
 $('form').on('submit', function () {
     var text = $('textarea').val(),

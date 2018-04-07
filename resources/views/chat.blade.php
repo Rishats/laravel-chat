@@ -14,7 +14,7 @@
                             @endif
                             <ul class="chat">
                                 @foreach ($last_messages as $msg)
-                                    <li class="user_login">{{ $msg->socket_id }}</li>
+                                    <li class="user_login">{{ $msg->socket_id }} <span class="user_message_time">[{{ $msg->created_at}}]</span></li>
                                     <li class="user_message">{{ $msg->message }}</li>
                                 @endforeach
                             </ul>

@@ -1,6 +1,6 @@
 {
+    "/js/chat/client.js": "/js/chat/client.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/js/login/login.js": "/js/login/login.js",
-    "/js/chat/client.js": "/js/chat/client.js"
+    "/js/login/login.js": "/js/login/login.js"
 }
