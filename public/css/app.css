@@ -10017,3 +10017,8 @@ a.text-dark:focus {
   font-weight: bold;
 }
 
+.chat {
+  height: 240px;
+  overflow-y: scroll;
+}
+
