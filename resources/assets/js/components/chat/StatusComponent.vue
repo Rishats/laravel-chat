@@ -4,7 +4,7 @@
     
 <script>
     export default {
-        name: "MessageComponent"
+        name: "StatusComponent"
     };
     var vm = new Vue({
         sockets:{
