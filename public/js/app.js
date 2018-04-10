@@ -58614,7 +58614,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -59001,13 +59001,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: "MessageComponent"
-});
-var vm = new Vue({
-    sockets: {
-        connect: function connect() {
-            this.$vs.notify({ title: 'Соединение', text: 'Вы успешно подключились к чату!', color: 'success', position: 'bottom-center' });
-        }
+    mounted: function mounted() {
+        var vm = new Vue({
+            sockets: {
+                connect: function connect() {
+                    this.$vs.notify({ title: 'Соединение', text: 'Вы успешно подключились к чату!', color: 'success', position: 'bottom-center' });
+                },
+                connect_error: function connect_error() {
+                    this.$vs.notify({ title: 'Соединение', text: 'Ошибка сервера, не могу подключить к чату!', color: 'danger', position: 'bottom-center' });
+                }
+            }
+        });
     }
 });
 
