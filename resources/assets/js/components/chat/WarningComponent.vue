@@ -1,10 +1,10 @@
 <template>
-    <h1>Future</h1>
+    $END$
 </template>
 
 <script>
     export default {
-        name: "MessageComponent"
+        name: "WarningComponent"
     }
 </script>
 
