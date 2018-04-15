@@ -13,7 +13,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Анонимный чат</h5>
                         <p class="card-text">В данном чате никто не узнает кто ты такой.</p>
-                        <a href="{{ url('/anonymous-chat') }}" class="btn btn-primary">Открыть</a>
+                        <a id="anonymousChat" href="{{ url('/anonymous-chat') }}" class="btn btn-primary">Открыть</a>
                     </div>
                 </div>
             </div>
