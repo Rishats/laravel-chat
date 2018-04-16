@@ -24,10 +24,11 @@ class AnonymousChatTest extends DuskTestCase
 
         $this->browse(function ($browser) use ($user) {
             $browser->visit('/login')
-                ->type('email', $user-->type('password', 'secret')
+                ->type('email', $user->email)
+                ->type('password', 'secret')
                 ->press('Войти')
                 ->click('#anonymousChat')
-                ->assertSee('Введите ваше сообщение:');
+                ->assertDontSee('Ошибка');
         });
     }
 }
