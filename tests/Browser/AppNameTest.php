@@ -6,18 +6,18 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class MainPageTest extends DuskTestCase
+class AppNameTest extends DuskTestCase
 {
     /**
-     * Open main page without auth and see that we on main page.
+     * A Dusk test example.
      *
      * @return void
      */
-    public function testMainPage()
+    public function testAppName()
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
-                ->assertPathIs('/login');
+            $browser->visit('/login')
+                    ->assertSee('Chat');
         });
     }
 }
