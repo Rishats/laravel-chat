@@ -1,5 +1,10 @@
-var socket = io(':6001');
+var socket = io(':6001/anonymous_chat');
 var moment = require('moment');
+var room = 'a_chat';
+
+socket.on('connect', function() {
+    socket.emit('room', room);
+});
 
 function appendMessage(user_login,data) {
     $('.chat').append(
@@ -29,6 +34,6 @@ socket.on('message', function (user_login,data) {
 socket.on('users_online', function (data) {
     console.log(data);
     $('.current_online').empty().append(
-        $('<p>').text('Current online: ' + data.online / 2)
+        $('<p>').text('Current online: ' + data.online)
     )
 });

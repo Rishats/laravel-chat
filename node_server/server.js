@@ -1,18 +1,21 @@
 var io = require('socket.io')(6001);
+const anonymousChatNamespace = io.of('/anonymous_chat');
 var Redis = require('ioredis');
 var mysql = require('mysql');
 var moment = require('moment');
 require('dotenv').config();
 
-io.on('connection', function (socket) {
+anonymousChatNamespace.on('connection', function (socket) {
+   socket.join('a_chat'); // Create room for anonymous chat.
    console.log('New connection',socket.id); // Send info in to console about new client.
-   saveOnline(io.engine.clientsCount); // Save current online in to redis.
-   socket.emit('users_online', { online: io.engine.clientsCount }); // Send current online to user which firstly connected.
-   socket.broadcast.emit('users_online', { online: io.engine.clientsCount });  // Send current online to all users online.
+   var room = socket.adapter.rooms['a_chat']; // Use for count users in room.
+   saveOnline(room.length); // Save current online in to redis.
+   socket.emit('users_online', { online: room.length }); // Send current online to user which firstly connected.
+   socket.broadcast.emit('users_online', { online: room.length });  // Send current online to all users online.
 
    socket.on('disconnect', function() {
-       saveOnline(io.engine.clientsCount);  // Save current online in to redis.
-       socket.broadcast.emit('users_online', { online: io.engine.clientsCount });  // Send current online to socket.
+       saveOnline(room.length);  // Save current online in to redis.
+       socket.broadcast.emit('users_online', { online: room.length });  // Send current online to socket.
        console.log('New disconnection',socket.id); // Send info in to console about new disconnection.
    });
 
