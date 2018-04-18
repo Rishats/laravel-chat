@@ -13,12 +13,12 @@ function appendMessage(user_login,data) {
     );
 }
 $('form').on('submit', function () {
-    var text = $('textarea').val(),
+    var text = $('#Message').val(),
         msg = {message: text};
     socket.send(msg);
     appendMessage(socket.id,msg);
 
-    $('textare').val('');
+    $('#Message').val('');
     return false;
 
 });

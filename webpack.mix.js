@@ -37,7 +37,7 @@ mix.webpackConfig({
                 open: false
             },
             {
-                reload: false
+                reload: true
             }
         )
     ]

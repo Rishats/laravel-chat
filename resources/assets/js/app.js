@@ -9,13 +9,17 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import BootstrapVue from 'bootstrap-vue'
+
+Vue.use(BootstrapVue);
+
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 import Vuesax from 'vuesax';
 
 import 'vuesax/dist/vuesax.css';
 Vue.use(Vuesax);
-
-import VueSocketio from 'vue-socket.io';
-Vue.use(VueSocketio, 'http://laravel-chat.test:6001');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -23,7 +27,8 @@ Vue.use(VueSocketio, 'http://laravel-chat.test:6001');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('status-component', require('./components/chat/StatusComponent'));
+Vue.component('status_component', require('./components/chat/StatusComponent'));
+Vue.component('message_form_component', require('./components/chat/MessageFormComponent'));
 
 const app = new Vue({
     el: '#app'

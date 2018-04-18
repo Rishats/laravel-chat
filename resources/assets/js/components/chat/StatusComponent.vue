@@ -3,6 +3,9 @@
 </template>
     
 <script>
+    import VueSocketio from 'vue-socket.io';
+    Vue.use(VueSocketio, 'http://laravel-chat.test:6001');
+
     export default {
         mounted() {
             var vm = new Vue({

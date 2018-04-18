@@ -12,7 +12,7 @@
                                     {{ session('status') }}
                                 </div>
                             @endif
-                            <status-component></status-component>
+                            <status_component></status_component>
                             <ul class="chat">
                                 @foreach ($last_messages as $msg)
                                     <li class="user_login">{{ $msg->socket_id }} <span class="user_message_time">[{{ $msg->created_at}}]</span></li>
@@ -31,14 +31,7 @@
                                 </div>
                             @endif
                             <div class="current_online"></div>
-                            <form>
-                                <div class="form-group mt-5">
-                                    <label for="exampleFormControlTextarea1">Введите ваше сообщение:</label>
-                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                </div>
-                                <hr>
-                                <button type="submit" class="btn btn-outline-success">Send Message</button>
-                            </form>
+                            <message_form_component></message_form_component>
                         </div>
                     </div>
                 </div>
