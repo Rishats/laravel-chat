@@ -5,7 +5,7 @@
     <div class="row justify-content-md-center mt-5">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Авторизация</div>
+                <div class="card-header">Authorization</div>
                 <div class="card-body">
                     <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-lg-4 col-form-label text-lg-right">Пароль</label>
+                            <label for="password" class="col-lg-4 col-form-label text-lg-right">Password</label>
 
                             <div class="col-lg-6">
                                 <input
@@ -56,7 +56,7 @@
                             <div class="col-lg-6 offset-lg-4">
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="remember" {{ old('remember') ? 'checked' : '' }}> Запомнить меня
+                                        <input type="checkbox" class="form-check-input" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember me
                                     </label>
                                 </div>
                             </div>
@@ -65,11 +65,11 @@
                         <div class="form-group row">
                             <div class="col-lg-8 offset-lg-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Войти
+                                    Login
                                 </button>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Забыли пароль?
+                                    Forgot your password?
                                 </a>
                             </div>
                         </div>
@@ -79,7 +79,7 @@
         </div>
         <div class="col-md-8 m-5">
             <div class="card">
-                <div class="card-header">Авторизация и регистрация через внешние сервисы</div>
+                <div class="card-header">Authorization and registration through external services</div>
                 <div class="card-body">
                     <div class="form-group row">
                         <button id="loginFacebook" type="button" class="btn btn-primary btn-lg btn-block">Facebook</button>

@@ -11,10 +11,10 @@
             var vm = new Vue({
                 sockets:{
                     connect: function(){
-                        this.$vs.notify({title:'Соединение',text:'Вы успешно подключились к чату!',color:'success',position:'bottom-center'});
+                        this.$vs.notify({title:'Connection',text:'You have successfully connected to the chat!',color:'success',position:'bottom-center'});
                     },
                     connect_error: function(){
-                        this.$vs.notify({title:'Соединение',text:'Ошибка сервера, не могу подключить к чату!',color:'danger',position:'bottom-center'});
+                        this.$vs.notify({title:'Connection',text:'Server error, can not connect to chat!',color:'danger',position:'bottom-center'});
                     }
                 }
             });

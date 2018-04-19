@@ -28,8 +28,8 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     @if (Auth::guest())
-                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Авторизация</a></li>
-                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Регистрация</a></li>
+                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Sign in</a></li>
+                        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Sign up</a></li>
                     @else
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"

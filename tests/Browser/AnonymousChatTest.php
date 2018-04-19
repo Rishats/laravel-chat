@@ -26,9 +26,9 @@ class AnonymousChatTest extends DuskTestCase
             $browser->visit('/login')
                 ->type('email', $user->email)
                 ->type('password', 'secret')
-                ->press('Войти')
+                ->press('Open')
                 ->click('#anonymousChat')
-                ->assertDontSee('Ошибка');
+                ->assertDontSee('Error');
         });
     }
 }

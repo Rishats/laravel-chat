@@ -5,7 +5,7 @@
     <div class="row justify-content-md-center mt-5">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Сбросить пароль</div>
+                <div class="card-header">Reset password</div>
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success">
@@ -33,7 +33,7 @@
                         <div class="form-group row">
                             <div class="col-lg-6 offset-lg-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Отправить ссылку на восстановление
+                                    Send a link to recovery
                                 </button>
                             </div>
                         </div>

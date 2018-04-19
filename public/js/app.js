@@ -10152,6 +10152,7 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_3_vuesax___default.a);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
 Vue.component('status_component', __webpack_require__(354));
 Vue.component('message_form_component', __webpack_require__(362));
 
@@ -75700,10 +75701,10 @@ Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_socket_io___default.a, 'http://laravel-c
         var vm = new Vue({
             sockets: {
                 connect: function connect() {
-                    this.$vs.notify({ title: 'Соединение', text: 'Вы успешно подключились к чату!', color: 'success', position: 'bottom-center' });
+                    this.$vs.notify({ title: 'Connection', text: 'You have successfully connected to the chat!', color: 'success', position: 'bottom-center' });
                 },
                 connect_error: function connect_error() {
-                    this.$vs.notify({ title: 'Соединение', text: 'Ошибка сервера, не могу подключить к чату!', color: 'danger', position: 'bottom-center' });
+                    this.$vs.notify({ title: 'Connection', text: 'Server error, can not connect to chat!', color: 'danger', position: 'bottom-center' });
                 }
             }
         });
