@@ -9,19 +9,19 @@ anonymousChatNamespace.on('connection', function (socket) {
    socket.join('a_chat'); // Create room for anonymous chat.
    console.log('New connection',socket.id); // Send info in to console about new client.
    var room = socket.adapter.rooms['a_chat']; // Use for count users in room.
-   saveOnline(room.length); // Save current online in to redis.
+   saveAnonymousChatOnline(room.length); // Save current online in to redis.
    socket.emit('users_online', { online: room.length }); // Send current online to user which firstly connected.
    socket.broadcast.emit('users_online', { online: room.length });  // Send current online to all users online.
 
    socket.on('disconnect', function() {
-       saveOnline(room.length);  // Save current online in to redis.
+       saveAnonymousChatOnline(room.length);  // Save current online in to redis.
        socket.broadcast.emit('users_online', { online: room.length });  // Send current online to socket.
        console.log('New disconnection',socket.id); // Send info in to console about new disconnection.
    });
 
    socket.on('message', function (data) {
        socket.broadcast.send(socket.id,data);
-       saveMessage(socket.id,data.message); // Save last user message.
+       saveAnonymousChatMessage(socket.id,data.message); // Save last user message.
    });
 
 });
@@ -32,7 +32,7 @@ var redis = new Redis({
     host: process.env.REDIS_HOST,           // Redis host
     family: 4,                             // 4 (IPv4) or 6 (IPv6)
     password: process.env.REDIS_PASSWORD, // Redis password
-    db: 4                                // Redis DB number.
+    db: process.env.REDIS_DB              // Redis DB number.
 });
 
 // Connect to Mysql Server
@@ -50,9 +50,9 @@ mysql_conntection.connect(function(err) {
     console.log("Connected to MySQL!");
 });
 
-function saveMessage(socket_id, message) // Function save user messages from socket.io in to mysql.
+function saveAnonymousChatMessage(socket_id, message) // Function save user messages from socket.io in to mysql.
 {
-    var sql = "INSERT INTO chat_messages (socket_id, message,created_at,updated_at) VALUES ?";
+    var sql = "INSERT INTO anonymous_chat_messages (socket_id, message,created_at,updated_at) VALUES ?";
     var values = [
         [socket_id, message, moment(new Date()).format("YYYY-MM-DD HH:mm:ss"), moment(new Date()).format("YYYY-MM-DD HH:mm:ss")]
     ];
@@ -61,7 +61,7 @@ function saveMessage(socket_id, message) // Function save user messages from soc
     });
 }
 
-function saveOnline(online) // Function save current online in socket.io in to redis.
+function saveAnonymousChatOnline(online) // Function save current online in socket.io in to redis.
 {
-    redis.set('online',online);
+    redis.set('anonymous_chat_online',online);
 }

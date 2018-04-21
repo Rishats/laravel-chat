@@ -13,7 +13,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Anonymous Chat</h5>
                         <p class="card-text">In this chat you will be private..</p>
-                        <a id="anonymousChat" href="{{ url('/anonymous-chat') }}" class="btn btn-primary">Open</a>
+                        <anonymous_chat_info_component></anonymous_chat_info_component>
                     </div>
                 </div>
             </div>

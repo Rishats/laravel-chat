@@ -11,13 +11,23 @@
 |
 */
 
-// WELCOME PAGE
+/*
+|--------------------------------------------------------------------------
+| Welcome page
+|--------------------------------------------------------------------------
+|
+*/
 Route::get('/', function () {
     return redirect()->route('login');
 });
 
 
-// AUTH
+/*
+|--------------------------------------------------------------------------
+| Auth
+|--------------------------------------------------------------------------
+|
+*/
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -26,12 +36,22 @@ Route::get('login/{provider}', 'Auth\SocialAuthController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
 
 
-// OTHERS
+/*
+|--------------------------------------------------------------------------
+| Others - testing - no need.
+|--------------------------------------------------------------------------
+|
+*/
 Route::get('/microtime', function () {
     event(
         new \App\Events\TestEvent()
     );
 });
 
-// APP Functionality
-Route::get('/anonymous-chat', 'ChatController@index'); // Simple anonymous chat with websocket and Redis.
+/*
+|--------------------------------------------------------------------------
+| Chats
+|--------------------------------------------------------------------------
+|
+*/
+Route::get('/anonymous-chat', 'AnonymousChatController@index'); // Simple anonymous chat with websocket and Redis.

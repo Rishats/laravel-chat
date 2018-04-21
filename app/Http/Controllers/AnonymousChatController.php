@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\ChatMessage;
+use App\AnonymousChatMessage;
 use Illuminate\Http\Request;
 
-class ChatController extends Controller
+class AnonymousChatController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,11 +24,11 @@ class ChatController extends Controller
      */
     public function index()
     {
-        $last_messages = ChatMessage::orderBy('id', 'desc')
+        $last_messages = AnonymousChatMessage::orderBy('id', 'desc')
             ->take(5)
             ->get()
             ->reverse();
 
-        return view('chat')->with( ['last_messages' => $last_messages]);
+        return view('anonymous_chat')->with( ['last_messages' => $last_messages]);
     }
 }

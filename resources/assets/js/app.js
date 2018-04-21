@@ -27,6 +27,12 @@ Vue.use(Vuesax);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+// Home
+Vue.component('anonymous_chat_info_component', require('./components/home/AnonymousChatInfoComponent'));
+//-----------//
+
+
 // Anonymous Chat
 Vue.component('status_component', require('./components/anonymous-chat/StatusComponent'));
 Vue.component('message_form_component', require('./components/anonymous-chat/MessageFormComponent'));
