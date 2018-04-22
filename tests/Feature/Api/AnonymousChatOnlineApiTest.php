@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class AnonymousChatOnlineApiTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Check that API work correct and response have json format with needed structure.
      *
      * @return void
      */
