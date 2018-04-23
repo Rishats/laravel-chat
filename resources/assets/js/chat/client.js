@@ -1,3 +1,4 @@
+import io from 'socket.io-client';
 var socket = io(':6001/anonymous_chat');
 var moment = require('moment');
 var room = 'a_chat';

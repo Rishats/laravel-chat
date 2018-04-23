@@ -8,6 +8,7 @@
 require('./bootstrap');
 window.Vue = require('vue');
 
+
 import BootstrapVue from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
@@ -15,12 +16,15 @@ import Vuesax from 'vuesax';
 import 'vuesax/dist/vuesax.css';
 import axios from 'axios';
 
+
 Vue.use(BootstrapVue);
 Vue.use(Vuesax);
 window.axios = axios;
 window.axios.defaults.headers.common = {
     'X-Requested-With': 'XMLHttpRequest'
 };
+
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
