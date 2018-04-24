@@ -1,7 +1,7 @@
 import io from 'socket.io-client';
-var socket = io(':6001/chat');
+var socket = io(':6001/anonymous_chat');
 var moment = require('moment');
-var room = 'chat';
+var room = 'a_chat';
 
 socket.on('connect', function() {
     socket.emit('room', room);

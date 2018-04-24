@@ -12,7 +12,7 @@
                                     {{ session('status') }}
                                 </div>
                             @endif
-                            <anonymous_status_component></anonymous_status_component>
+                            <chat_status_component></chat_status_component>
                             <ul class="chat">
                                 @foreach ($last_messages as $msg)
                                     <li class="user_login">{{ $msg->socket_id }} <span class="user_message_time">[{{ $msg->created_at}}]</span></li>
@@ -31,7 +31,7 @@
                                 </div>
                             @endif
                             <div class="current_online"></div>
-                            <anonymous_message_form_component></anonymous_message_form_component>
+                            <chat_message_form_component></chat_message_form_component>
                         </div>
                     </div>
                 </div>
@@ -40,5 +40,5 @@
     </div>
 @endsection
 @section('scripts')
-    <script src="{{ asset('js/anonymous_chat/client.js') }}"></script>
+    <script src="{{ asset('js/chat/client.js') }}"></script>
 @endsection

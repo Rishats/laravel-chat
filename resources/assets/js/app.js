@@ -38,8 +38,13 @@ Vue.component('anonymous_chat_info_component', require('./components/home/Anonym
 
 
 // Anonymous Chat
-Vue.component('status_component', require('./components/anonymous-chat/StatusComponent'));
-Vue.component('message_form_component', require('./components/anonymous-chat/MessageFormComponent'));
+Vue.component('anonymous_status_component', require('./components/anonymous_chat/StatusComponent'));
+Vue.component('anonymous_message_form_component', require('./components/anonymous_chat/MessageFormComponent'));
+//-----------//
+
+// Chat
+Vue.component('chat_status_component', require('./components/chat/StatusComponent'));
+Vue.component('chat_message_form_component', require('./components/chat/MessageFormComponent'));
 //-----------//
 
 const app = new Vue({
