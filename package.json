@@ -18,6 +18,7 @@
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
         "popper.js": "^1.12.9",
+        "typescript": "^2.8.3",
         "vue": "^2.5.7"
     },
     "dependencies": {
@@ -27,8 +28,10 @@
         "dotenv": "^5.0.1",
         "font-awesome": "^4.7.0",
         "ioredis": "^3.2.2",
+        "laravel-echo": "^1.3.5",
         "moment": "^2.22.0",
         "mysql": "^2.15.0",
+        "pusher-js": "^4.2.2",
         "socket.io": "^2.1.0",
         "vue-socket.io": "^2.1.1-b",
         "vuelidate": "^0.6.2",

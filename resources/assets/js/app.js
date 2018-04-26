@@ -15,6 +15,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Vuesax from 'vuesax';
 import 'vuesax/dist/vuesax.css';
 import axios from 'axios';
+import Echo from 'laravel-echo';
 
 
 Vue.use(BootstrapVue);
@@ -34,6 +35,7 @@ window.axios.defaults.headers.common = {
 
 // Home
 Vue.component('anonymous_chat_info_component', require('./components/home/AnonymousChatInfoComponent'));
+Vue.component('chat_info_component', require('./components/home/ChatInfoComponent'));
 //-----------//
 
 
@@ -44,9 +46,43 @@ Vue.component('anonymous_message_form_component', require('./components/anonymou
 
 // Chat
 Vue.component('chat_status_component', require('./components/chat/StatusComponent'));
-Vue.component('chat_message_form_component', require('./components/chat/MessageFormComponent'));
+Vue.component('chat-messages', require('./components/chat/ChatMessages.vue'));
+Vue.component('chat-form', require('./components/chat/ChatForm.vue'));
 //-----------//
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+
+    data: {
+        messages: []
+    },
+
+    created() {
+        this.fetchMessages();
+
+        window.Echo.private('chat')
+            .listen('MessageSent', (e) => {
+                this.messages.push({
+                    message: e.message.message,
+                    user: e.user
+                });
+            });
+    },
+
+    methods: {
+        fetchMessages() {
+            axios.get('/messages').then(response => {
+                this.messages = response.data;
+            });
+        },
+
+        addMessage(message) {
+            this.messages.push(message);
+
+            axios.post('/messages', message).then(response => {
+                console.log(response.data);
+            });
+        }
+    }
+
 });

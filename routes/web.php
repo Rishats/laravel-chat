@@ -55,4 +55,7 @@ Route::get('/microtime', function () {
 |
 */
 Route::get('/anonymous-chat', 'AnonymousChatController@index'); // Simple anonymous chat with websocket and Redis.
-Route::get('/chat', 'ChatController@index'); // Simple chat with websocket and Redis.
+
+Route::get('/chat', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
