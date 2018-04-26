@@ -1,10 +1,12 @@
-var io = require('socket.io')(6001);
+require('dotenv').config();
+var io = require('socket.io')(6001, {
+    origin : process.env.APP_URL + ':*',
+});
 const anonymousChatNamespace = io.of('/anonymous_chat');
 const ChatNamespace = io.of('/chat');
 var Redis = require('ioredis');
 var mysql = require('mysql');
 var moment = require('moment');
-require('dotenv').config();
 
 anonymousChatNamespace.on('connection', function (socket) {
    socket.join('a_chat'); // Create room for anonymous chat.
