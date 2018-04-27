@@ -82775,7 +82775,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "ul",
-    { staticClass: "chat" },
+    { staticClass: "chat-pusher" },
     _vm._l(_vm.messages, function(message) {
       return _c("li", { staticClass: "left clearfix" }, [
         _c("div", { staticClass: "chat-body clearfix" }, [
