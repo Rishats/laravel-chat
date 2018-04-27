@@ -1,4 +1,3 @@
-
 window._ = require('lodash');
 
 window.Popper = require('popper.js/dist/umd/popper');
@@ -51,7 +50,7 @@ window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: 'bc7b390db861b1698434',
+    key: 'your-pusher-key',
     cluster: 'ap2',
     encrypted: true
 });
