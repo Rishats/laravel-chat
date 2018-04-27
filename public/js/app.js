@@ -11284,7 +11284,6 @@ var app = new Vue({
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_laravel_echo__);
-
 window._ = __webpack_require__(229);
 
 window.Popper = __webpack_require__(230);
@@ -11337,7 +11336,7 @@ window.Pusher = __webpack_require__(252);
 
 window.Echo = new __WEBPACK_IMPORTED_MODULE_0_laravel_echo___default.a({
   broadcaster: 'pusher',
-  key: 'bc7b390db861b1698434',
+  key: 'your-pusher-key',
   cluster: 'ap2',
   encrypted: true
 });
